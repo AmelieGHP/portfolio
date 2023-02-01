@@ -31,8 +31,13 @@ header {
         margin-top: 3vh;
         font-size: $h4;
         color: $accentColor;
-        box-shadow: $shadowBox;
+        box-shadow: 4px 4px 30px $accentColor;
         border: 1px solid transparent;
+        transition: 0.3s ease-in-out;
+      }
+
+      & button:hover {
+        box-shadow: $shadowBox;
       }
     }
   }

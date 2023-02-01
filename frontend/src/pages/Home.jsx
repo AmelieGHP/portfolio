@@ -39,7 +39,7 @@ function Home() {
   };
 
   useEffect(() => {
-    navigate("/", { state: { goTo: "home" } });
+    // navigate("/", { state: { goTo: "home" } });
     getUser();
   }, []);
 

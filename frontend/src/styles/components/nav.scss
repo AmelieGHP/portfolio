@@ -8,6 +8,7 @@
   background-color: $accentColor;
   position: fixed;
   top: 0;
+  box-shadow: 2px 0 4px $accentColor;
 
   & a {
     color: $titleColor;

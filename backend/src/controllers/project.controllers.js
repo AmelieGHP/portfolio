@@ -5,7 +5,8 @@ const getAllProjects = async (req, res) => {
   if (result.length === 0) {
     res.sendStatus(500);
   }
-  return res.json(result);
+  console.log(result);
+  return res.send(result);
 };
 
 const getProjectById = async (req, res) => {

@@ -1,0 +1,36 @@
+.contact {
+  min-height: 60vh;
+  & form {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 80%;
+    margin: auto;
+    padding: 8px;
+
+    & input {
+      height: 50px;
+      border: 1px solid $accentColor;
+      padding: 0 8px;
+    }
+
+    & textarea {
+      height: 150px;
+      border: 1px solid $accentColor;
+      padding: 8px;
+    }
+
+    & button {
+      color: white;
+      background-color: $accentColor;
+      align-self: center;
+      border: 1px solid transparent;
+      margin-top: 3vh;
+      transition: 0.3s ease-in-out;
+    }
+
+    & button:hover {
+      box-shadow: $shadowBox;
+    }
+  }
+}
