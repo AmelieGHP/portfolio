@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+function Nav() {
   return (
     <div className="nav">
       <Link to="/" state={{ goTo: "home" }}>
@@ -18,6 +18,6 @@ const Nav = () => {
       </Link>
     </div>
   );
-};
+}
 
 export default Nav;

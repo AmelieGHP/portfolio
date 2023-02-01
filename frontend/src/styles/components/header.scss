@@ -24,14 +24,16 @@ header {
     h3 {
       text-shadow: 4px 4px 4px $textColor;
     }
-
-    & button {
-      margin-top: 3vh;
+    & a {
       align-self: center;
-      font-size: $h4;
-      color: $accentColor;
-      box-shadow: $shadowBox;
-      border: 1px solid transparent;
+
+      & button {
+        margin-top: 3vh;
+        font-size: $h4;
+        color: $accentColor;
+        box-shadow: $shadowBox;
+        border: 1px solid transparent;
+      }
     }
   }
 

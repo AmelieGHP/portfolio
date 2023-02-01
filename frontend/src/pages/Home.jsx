@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "@components/Header";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Nav from "@components/Nav";
 import About from "@components/About";
 import Projects from "@components/Projects";
@@ -9,14 +9,13 @@ import Contact from "@components/Contact";
 
 function Home() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [github, setGithub] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [picture, setPicture] = useState("");
   const [description, setDescription] = useState("");
-  const [technos, setTechnos] = useState([]);
-  const [projects, setProjects] = useState([]);
   const [showNav, setShowNav] = useState(false);
   const getUser = () => {
     const idUser = 1;
@@ -38,43 +37,10 @@ function Home() {
         console.error(err);
       });
   };
-  const getTechnos = () => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/techno`)
-      .then((result) => {
-        const tempArray = [];
-        if (result.data.length > 0) {
-          for (let i = 0; i < result.data.length; i++) {
-            tempArray.push(result.data[i]);
-          }
-        }
-        setTechnos(tempArray);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
 
-  const getProjects = () => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/project`)
-      .then((result) => {
-        const tempArray = [];
-        if (result.data.length > 0) {
-          for (let i = 0; i < result.data.length; i++) {
-            tempArray.push(result.data[i]);
-          }
-        }
-        setProjects(tempArray);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
   useEffect(() => {
+    navigate("/", { state: { goTo: "home" } });
     getUser();
-    getTechnos();
-    getProjects();
   }, []);
 
   useEffect(() => {
@@ -85,7 +51,7 @@ function Home() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 100) {
+      if (window.pageYOffset >= window.innerHeight) {
         setShowNav(true);
       } else {
         setShowNav(false);
@@ -97,8 +63,13 @@ function Home() {
     <div className="home">
       <Header firstname={firstname} lastname={lastname} picture={picture} />
       <div id="content">
-        <Nav />
-        <About />
+        {showNav && <Nav />}
+        <About
+          picture={picture}
+          description={description}
+          linkedin={linkedin}
+          github={github}
+        />
         <Projects />
         <Contact />
       </div>
