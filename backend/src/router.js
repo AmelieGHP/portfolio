@@ -1,18 +1,52 @@
 const express = require("express");
-
+const multer = require("multer");
 const router = express.Router();
-// const database = require("../database"); // si besoin
 
-const structure = require("./controllers/structure.controllers");
-// ajouter les controllers ICI
+const user = require("./controllers/user.controllers");
 
-router.get("/structure", structure.getAllStructures);
-router.get("/structure/:id", structure.getStructureById);
+const storageAvatar = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./public/assets/images");
+  },
+  filename: (req, file, cb) => {
+    const date = new Date();
+    cb(null, date.getMinutes() + file.originalname);
+  },
+});
 
-router.post("/structure", structure.postStructure);
+const uploadAvatar = multer({ storage: storageAvatar });
 
-router.put("/structure/:id", structure.updateStructureById);
+router.post("/avatar", uploadAvatar.single("avatar"), (req, res) => {
+  res.status(200).send(req.file.filename);
+});
 
-router.delete("/structure/:id", structure.deleteStructureById);
+router.get("/user/:id", user.getUserById);
+
+router.post("/user", user.createUser);
+
+router.put("/user", user.updateUser);
+router.put("/userPicture", user.updatePicture);
+
+const project = require("./controllers/project.controllers");
+
+router.get("/project", project.getAllProjects);
+router.get("/project/:id", project.getProjectById);
+
+router.post("/project", project.createProject);
+
+router.put("/project/:id", project.updateProjectById);
+
+router.delete("/project/:id", project.deleteProjectById);
+
+const techno = require("./controllers/techno.controllers");
+
+router.get("/techno", techno.getAllTechnos);
+router.get("/techno/:id", techno.getTechnoById);
+
+router.post("/techno", techno.createTechno);
+
+router.put("/techno/:id", techno.updateTechnoById);
+
+router.delete("/techno/:id", techno.deleteTechnoById);
 
 module.exports = router;

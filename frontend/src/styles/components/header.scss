@@ -1,0 +1,41 @@
+header {
+  display: flex;
+  align-items: center;
+  gap: 5vw;
+  justify-content: flex-end;
+  padding: 5vw;
+  height: 100vh;
+  background-image: url("../assets/vecteezy_abstract-green-hexagon-pattern-background-with-particles_7355468.jpg");
+
+  & .imgContainer {
+    border-radius: 50%;
+    width: 25vw;
+
+    & img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+  & .title {
+    display: flex;
+    flex-direction: column;
+
+    & h1,
+    h3 {
+      text-shadow: 4px 4px 4px $textColor;
+    }
+
+    & button {
+      margin-top: 3vh;
+      align-self: center;
+      font-size: $h4;
+      color: $accentColor;
+      box-shadow: $shadowBox;
+      border: 1px solid transparent;
+    }
+  }
+
+  & .arrow {
+    transform: rotate(90deg) translateX(3px);
+  }
+}

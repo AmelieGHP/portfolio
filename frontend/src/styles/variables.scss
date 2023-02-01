@@ -1,29 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Faustina:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
 
 $white: rgb(250, 250, 250);
 $black: rgb(12, 12, 12);
 $gray: rgb(231, 231, 231);
 
-$first: #54f2f2;
-$second: #57467b;
-$third: #ffee93;
-$fourth: #f4a5ae;
-$fifth: #f5d7e3;
+$titleColor: #ffffff;
+$accentColor: #026c6e;
+$textColor: #012121;
 
-$gradient: linear-gradient(
-  to left top,
-  #f5d7e3,
-  #f5cad8,
-  #f5becc,
-  #f5b1be,
-  #f4a5ae
-);
+$first: #36e8e4;
+$second: #04b1b3;
 
-$h1: 4rem;
-$h2: 3rem;
+$gradient: linear-gradient(to right, #026c6e, #04b1b3, #36e8e4);
+
+$shadowBox: 4px 4px 20px $textColor;
+
+$h1: 3rem;
+$h2: 2.5rem;
 $h3: 2rem;
 $h4: 1.5rem;
 
-$title: "Faustina", serif;
-$text: "Open Sans", sans-serif;
+$titleFont: "Playfair Display", serif;
+$textFont: "Source Sans Pro", sans-serif;

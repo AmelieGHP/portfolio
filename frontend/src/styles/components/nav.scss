@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 8px 3vw;
+  background-color: $accentColor;
+  & a {
+    color: $titleColor;
+  }
+}

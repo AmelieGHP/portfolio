@@ -16,39 +16,46 @@ body {
   min-height: 100%;
 
   background: $white;
-  color: $black;
 
   font-size: 1rem;
-  font-family: $text;
+  font-family: $textFont;
 }
 
 h1,
 h2,
 h3 {
-  font-family: $title;
+  font-family: $titleFont;
+  color: $titleColor;
 }
 
 h1 {
   font-size: $h1;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 h2 {
   font-size: $h2;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 h3 {
   font-size: $h3;
+  font-weight: 400;
 }
 
 h4 {
   font-size: $h4;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 button {
   cursor: pointer;
+  width: fit-content;
+  border-radius: 20px;
+  height: 50px;
+  min-width: 150px;
+  padding: 0 12px;
+  font-family: $textFont;
 }
 
 a {
