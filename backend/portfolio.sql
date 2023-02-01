@@ -101,7 +101,7 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 
 INSERT INTO user(firstname, lastname, email, password, userDescription, linkedin, github, picture) VALUES
-("Amélie", "Guilloux", "amelie.guilloux@hotmail.fr", "1234", "I was a midwife for 9 years. Now a web dev, always birthing new project !", "https://www.linkedin.com/in/amelie-ghp", "https://github.com/AmelieGHP", "ID-carre.jpg");
+("Amélie", "Guilloux", "amelie.guilloux@hotmail.fr", "1234", "I was a midwife for 9 years. Now a web dev, always birthing new projects !", "https://www.linkedin.com/in/amelie-ghp", "https://github.com/AmelieGHP", "ID-carre.jpg");
 INSERT INTO techno(technoName, level, user_iduser) VALUES
 ("JavaScript", 6, 1),
 ("HTML", 7, 1),
