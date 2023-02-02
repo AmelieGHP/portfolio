@@ -42,9 +42,9 @@ function ProjectCardAdmin({ name, image1, id, getProjects }) {
   );
 }
 ProjectCardAdmin.propTypes = {
-  name: Proptypes.string.isRequired,
-  id: Proptypes.number.isRequired,
-  image1: Proptypes.string.isRequired,
-  getProjects: Proptypes.func.isRequired,
+  name: Proptypes.string,
+  id: Proptypes.number,
+  image1: Proptypes.string,
+  getProjects: Proptypes.func,
 };
 export default ProjectCardAdmin;

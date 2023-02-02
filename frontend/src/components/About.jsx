@@ -49,7 +49,13 @@ function About({ picture, description, linkedin, github }) {
         <div className="technos">
           {technos.length > 0 &&
             technos.map((techno) => {
-              return <Techno name={techno.technoName} level={techno.level} />;
+              return (
+                <Techno
+                  key={techno.idtechno}
+                  name={techno.technoName}
+                  level={techno.level}
+                />
+              );
             })}
         </div>
       </div>
@@ -57,9 +63,9 @@ function About({ picture, description, linkedin, github }) {
   );
 }
 About.propTypes = {
-  picture: Proptypes.string.isRequired,
-  description: Proptypes.string.isRequired,
-  linkedin: Proptypes.string.isRequired,
-  github: Proptypes.string.isRequired,
+  picture: Proptypes.string,
+  description: Proptypes.string,
+  linkedin: Proptypes.string,
+  github: Proptypes.string,
 };
 export default About;

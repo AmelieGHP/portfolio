@@ -12,7 +12,7 @@ function Techno({ name, level }) {
   );
 }
 Techno.propTypes = {
-  name: Proptypes.string.isRequired,
-  level: Proptypes.number.isRequired,
+  name: Proptypes.string,
+  level: Proptypes.number,
 };
 export default Techno;

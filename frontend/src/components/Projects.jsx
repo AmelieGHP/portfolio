@@ -37,6 +37,7 @@ function Projects() {
                 name={project.projectName}
                 image1={project.image1}
                 id={project.idproject}
+                key={project.idproject}
               />
             );
           })}
