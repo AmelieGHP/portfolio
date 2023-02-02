@@ -1,6 +1,7 @@
 import React from "react";
 import { TbArrowLoopRight2 } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import Proptypes from "prop-types";
 
 function Header({ firstname, lastname, picture }) {
   return (
@@ -22,5 +23,9 @@ function Header({ firstname, lastname, picture }) {
     </header>
   );
 }
-
+Header.propTypes = {
+  firstname: Proptypes.string.isRequired,
+  lastname: Proptypes.string.isRequired,
+  picture: Proptypes.string.isRequired,
+};
 export default Header;

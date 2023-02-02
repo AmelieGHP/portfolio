@@ -26,7 +26,6 @@ const updateProjectById = async (req, res) => {
 };
 
 const createProject = async (req, res) => {
-  console.log(req.body);
   const result = await projectModels.createProject(req);
   return res.json(result);
 };

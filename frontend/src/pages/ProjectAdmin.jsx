@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { TiArrowLeftOutline } from "react-icons/ti";
 
-const Project = () => {
+function Project() {
   const params = useParams();
   const { id } = params;
   const [name, setName] = useState("");
@@ -80,7 +80,6 @@ const Project = () => {
   };
 
   const savePicture = (inputRefName, where) => {
-    console.log(inputRefName);
     if (
       inputRefName.current !== null &&
       inputRefName.current.files.length > 0
@@ -271,6 +270,6 @@ const Project = () => {
       </button>
     </div>
   );
-};
+}
 
 export default Project;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Proptypes from "prop-types";
 
 function ProjectCard({ name, image1, id }) {
   return (
@@ -14,5 +15,9 @@ function ProjectCard({ name, image1, id }) {
     </Link>
   );
 }
-
+ProjectCard.propTypes = {
+  name: Proptypes.string.isRequired,
+  id: Proptypes.number.isRequired,
+  image1: Proptypes.string.isRequired,
+};
 export default ProjectCard;

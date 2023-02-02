@@ -1,12 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import { TiArrowLeftOutline } from "react-icons/ti";
 
-const Project = () => {
-  const params = useParams();
-  const { id } = params;
-  const navigate = useNavigate;
+function Project() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
@@ -57,31 +53,6 @@ const Project = () => {
     }
   };
 
-  const savePicture = (inputRefName, where) => {
-    if (
-      inputRefName.current !== null &&
-      inputRefName.current.files.length > 0
-    ) {
-      const formData = new FormData();
-      formData.append("avatar", inputRefName.current.files[0]);
-      axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/avatar`, formData)
-        .then((result) => {
-          const newThing = result.data;
-          const column = where;
-          axios
-            .put(`${import.meta.env.VITE_BACKEND_URL}/project/${id}`, [
-              column,
-              newThing,
-            ])
-            .then(() => {});
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  };
-
   const createProject = () => {
     const formData = new FormData();
     if (inputRef1.current.files[0] !== undefined) {
@@ -108,11 +79,11 @@ const Project = () => {
         if (result.data.photo3 !== undefined) {
           image3 = result.data.photo3[0].filename;
         }
-        let projectName = name;
-        let projectDescription = description;
-        let websiteLink = link;
-        let projectGithub = repo;
-        let idUser = 1;
+        const projectName = name;
+        const projectDescription = description;
+        const websiteLink = link;
+        const projectGithub = repo;
+        const idUser = 1;
         axios
           .post(`${import.meta.env.VITE_BACKEND_URL}/project`, {
             projectName,
@@ -228,6 +199,6 @@ const Project = () => {
       </button>
     </div>
   );
-};
+}
 
 export default Project;

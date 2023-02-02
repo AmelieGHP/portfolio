@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Techno from "@components/Techno";
 import axios from "axios";
 import { SlSocialLinkedin, SlSocialGithub } from "react-icons/sl";
+import Proptypes from "prop-types";
 
 function About({ picture, description, linkedin, github }) {
   const [technos, setTechnos] = useState([]);
@@ -55,5 +56,10 @@ function About({ picture, description, linkedin, github }) {
     </div>
   );
 }
-
+About.propTypes = {
+  picture: Proptypes.string.isRequired,
+  description: Proptypes.string.isRequired,
+  linkedin: Proptypes.string.isRequired,
+  github: Proptypes.string.isRequired,
+};
 export default About;

@@ -1,4 +1,5 @@
 import React from "react";
+import Proptypes from "prop-types";
 
 function Techno({ name, level }) {
   return (
@@ -10,5 +11,8 @@ function Techno({ name, level }) {
     </div>
   );
 }
-
+Techno.propTypes = {
+  name: Proptypes.string.isRequired,
+  level: Proptypes.number.isRequired,
+};
 export default Techno;

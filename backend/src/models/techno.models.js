@@ -28,7 +28,6 @@ const updateTechnoById = async (req) => {
 const createTechno = async (req) => {
   const name = req.body[0];
   const level = req.body[1];
-  console.log(req.body);
   const [result] = await database.query(
     "INSERT INTO techno (technoName, level, user_iduser) VALUES (?, ?, ?)",
     [name, level, 1]

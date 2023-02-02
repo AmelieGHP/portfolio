@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Nav from "@components/Nav";
 
-const Project = () => {
+function Project() {
   const params = useParams();
   const { id } = params;
   const [name, setName] = useState("");
@@ -25,7 +25,6 @@ const Project = () => {
         setImage1(result.data[0].image1);
         setImage2(result.data[0].image2);
         setImage3(result.data[0].image3);
-        console.log(result);
       })
       .catch((err) => {
         console.error(err);
@@ -79,6 +78,6 @@ const Project = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Project;

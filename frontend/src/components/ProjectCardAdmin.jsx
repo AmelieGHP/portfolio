@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Proptypes from "prop-types";
 
 function ProjectCardAdmin({ name, image1, id, getProjects }) {
   const deleteProject = () => {
@@ -40,5 +41,10 @@ function ProjectCardAdmin({ name, image1, id, getProjects }) {
     </div>
   );
 }
-
+ProjectCardAdmin.propTypes = {
+  name: Proptypes.string.isRequired,
+  id: Proptypes.number.isRequired,
+  image1: Proptypes.string.isRequired,
+  getProjects: Proptypes.func.isRequired,
+};
 export default ProjectCardAdmin;

@@ -98,9 +98,9 @@ function Admin() {
       axios
         .post(`${import.meta.env.VITE_BACKEND_URL}/avatar`, formData)
         .then((result) => {
-          const picture = result.data;
+          const picture1 = result.data;
           axios
-            .put(`${import.meta.env.VITE_BACKEND_URL}/userPicture`, [picture])
+            .put(`${import.meta.env.VITE_BACKEND_URL}/userPicture`, [picture1])
             .then(() => {
               alert("Done!");
               getUser();
@@ -324,7 +324,7 @@ function Admin() {
               />
             </div>
             <h4>Add a new project</h4>
-            <Link to={`/admin/new-project`}>
+            <Link to="/admin/new-project">
               <button type="button">Add</button>
             </Link>
           </div>

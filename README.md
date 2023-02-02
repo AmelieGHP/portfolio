@@ -16,6 +16,7 @@
 ### Portfolio
 
 You can add, delete, update technos & projects, & update your profile on '/admin' (not protected yet).
+Contact section doesn't work yet.
 
 Docs :
 

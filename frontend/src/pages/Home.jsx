@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "@components/Header";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Nav from "@components/Nav";
 import About from "@components/About";
 import Projects from "@components/Projects";
@@ -9,7 +9,6 @@ import Contact from "@components/Contact";
 
 function Home() {
   const location = useLocation();
-  const navigate = useNavigate();
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [github, setGithub] = useState("");

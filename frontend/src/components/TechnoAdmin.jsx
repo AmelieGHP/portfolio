@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Proptypes from "prop-types";
 
-const TechnoAdmin = ({ name, levelTechno, id, getTechnos }) => {
+function TechnoAdmin({ name, levelTechno, id, getTechnos }) {
   const [adminLevel, setAdminLevel] = useState(levelTechno);
 
   const updateTechno = () => {
     const level = adminLevel;
-    console.log(level);
     axios
       .put(`${import.meta.env.VITE_BACKEND_URL}/techno/${id}`, [level])
       .then((result) => {
@@ -24,7 +24,6 @@ const TechnoAdmin = ({ name, levelTechno, id, getTechnos }) => {
     axios
       .delete(`${import.meta.env.VITE_BACKEND_URL}/techno/${id}`)
       .then((result) => {
-        console.log(result);
         if (result.status === 204) {
           getTechnos;
         }
@@ -70,6 +69,11 @@ const TechnoAdmin = ({ name, levelTechno, id, getTechnos }) => {
       </div>
     </div>
   );
+}
+TechnoAdmin.propTypes = {
+  name: Proptypes.string.isRequired,
+  levelTechno: Proptypes.number.isRequired,
+  id: Proptypes.number.isRequired,
+  getTechnos: Proptypes.func.isRequired,
 };
-
 export default TechnoAdmin;
