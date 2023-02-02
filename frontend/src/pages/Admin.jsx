@@ -313,6 +313,7 @@ function Admin() {
                 name={project.projectName}
                 image1={project.image1}
                 id={project.idproject}
+                getProjects={getProjects()}
               />
             ))}
           <div className="projectCard newProject">

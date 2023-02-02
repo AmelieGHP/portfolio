@@ -17,7 +17,6 @@ const getProjectById = async (req) => {
 };
 
 const updateProjectById = async (req) => {
-  console.log(req.body);
   const column = req.body[0];
   const newThing = req.body[1];
   const [result] = await database.query(
@@ -58,7 +57,10 @@ const createProject = async (req) => {
 const deleteProjectById = async (req) => {
   const { id } = req.params;
 
-  const [result] = await database.query("DELETE FROM project WHERE id=?", [id]);
+  const [result] = await database.query(
+    "DELETE FROM project WHERE idproject=?",
+    [id]
+  );
   return result;
 };
 

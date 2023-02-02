@@ -1,22 +1,23 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { TiArrowLeftOutline } from "react-icons/ti";
 
 const Project = () => {
   const params = useParams();
   const { id } = params;
+  const navigate = useNavigate;
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
   const [repo, setRepo] = useState("");
-  const [image1, setImage1] = useState(
+  const [image1src, setImage1src] = useState(
     "https://via.placeholder.com/320x145.png?text=Image+1"
   );
-  const [image2, setImage2] = useState(
+  const [image2src, setImage2src] = useState(
     "https://via.placeholder.com/320x145.png?text=Image+2"
   );
-  const [image3, setImage3] = useState(
+  const [image3src, setImage3src] = useState(
     "https://via.placeholder.com/320x145.png?text=Image+3"
   );
   const inputRef1 = useRef(null);
@@ -28,7 +29,7 @@ const Project = () => {
     if (picture) {
       const reader = new FileReader();
       reader.onload = (el) => {
-        setImage2(el.target.result);
+        setImage1src(el.target.result);
       };
       reader.readAsDataURL(picture);
     }
@@ -39,7 +40,7 @@ const Project = () => {
     if (picture) {
       const reader = new FileReader();
       reader.onload = (el) => {
-        setImage2(el.target.result);
+        setImage2src(el.target.result);
       };
       reader.readAsDataURL(picture);
     }
@@ -50,14 +51,13 @@ const Project = () => {
     if (picture) {
       const reader = new FileReader();
       reader.onload = (el) => {
-        setImage3(el.target.result);
+        setImage3src(el.target.result);
       };
       reader.readAsDataURL(picture);
     }
   };
 
   const savePicture = (inputRefName, where) => {
-    console.log(inputRefName);
     if (
       inputRefName.current !== null &&
       inputRefName.current.files.length > 0
@@ -74,9 +74,7 @@ const Project = () => {
               column,
               newThing,
             ])
-            .then(() => {
-              getProject();
-            });
+            .then(() => {});
         })
         .catch((err) => {
           console.error(err);
@@ -85,9 +83,50 @@ const Project = () => {
   };
 
   const createProject = () => {
+    const formData = new FormData();
+    if (inputRef1.current.files[0] !== undefined) {
+      formData.append("photo1", inputRef1.current.files[0]);
+    }
+    if (inputRef2.current.files[0] !== undefined) {
+      formData.append("photo2", inputRef2.current.files[0]);
+    }
+    if (inputRef3.current.files[0] !== undefined) {
+      formData.append("photo3", inputRef3.current.files[0]);
+    }
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/project`, [])
-      .then((result) => console.log(result))
+      .post(`${import.meta.env.VITE_BACKEND_URL}/screen`, formData)
+      .then((result) => {
+        let image1 = image1src;
+        let image2 = image2src;
+        let image3 = image3src;
+        if (result.data.photo1 !== undefined) {
+          image1 = result.data.photo1[0].filename;
+        }
+        if (result.data.photo2 !== undefined) {
+          image2 = result.data.photo2[0].filename;
+        }
+        if (result.data.photo3 !== undefined) {
+          image3 = result.data.photo3[0].filename;
+        }
+        let projectName = name;
+        let projectDescription = description;
+        let websiteLink = link;
+        let projectGithub = repo;
+        let idUser = 1;
+        axios
+          .post(`${import.meta.env.VITE_BACKEND_URL}/project`, {
+            projectName,
+            projectDescription,
+            websiteLink,
+            projectGithub,
+            image1,
+            image2,
+            image3,
+            idUser,
+          })
+          .catch((err) => console.error(err));
+      })
+      .then(() => history.back())
       .catch((err) => console.error(err));
   };
 
@@ -114,33 +153,33 @@ const Project = () => {
       </div>
       <div className="imgsContainer">
         <div className="imgContainer">
-          <img src={image1} alt="screen" />
+          <img src={image1src} alt="screen" />
           <h4>Choose an image : </h4>
           <input
             type="file"
-            name="avatar"
+            name="photo1"
             ref={inputRef1}
             accept="image/png, image/jpg, image/jpeg"
             onChange={(e) => updateImg1(e)}
           />
         </div>
         <div className="imgContainer">
-          <img src={image2} alt="screen" />
+          <img src={image2src} alt="screen" />
           <h4>Choose an image : </h4>
           <input
             type="file"
-            name="avatar"
+            name="photo2"
             ref={inputRef2}
             accept="image/png, image/jpg, image/jpeg"
             onChange={(e) => updateImg2(e)}
           />
         </div>
         <div className="imgContainer">
-          <img src={image3} alt="screen" />
+          <img src={image3src} alt="screen" />
           <h4>Choose an image : </h4>
           <input
             type="file"
-            name="avatar"
+            name="photo3"
             ref={inputRef3}
             accept="image/png, image/jpg, image/jpeg"
             onChange={(e) => updateImg3(e)}

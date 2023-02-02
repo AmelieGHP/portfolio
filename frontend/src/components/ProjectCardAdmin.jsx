@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-function ProjectCardAdmin({ name, image1, id }) {
+function ProjectCardAdmin({ name, image1, id, getProjects }) {
   const deleteProject = () => {
     axios
       .delete(`${import.meta.env.VITE_BACKEND_URL}/project/${id}`)
       .then((result) => {
-        console.log(result);
         if (result.status === 204) {
-          alert("Done!");
+          getProjects;
         }
       })
       .catch((err) => {
