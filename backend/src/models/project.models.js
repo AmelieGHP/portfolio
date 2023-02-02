@@ -17,9 +17,12 @@ const getProjectById = async (req) => {
 };
 
 const updateProjectById = async (req) => {
+  console.log(req.body);
+  const column = req.body[0];
+  const newThing = req.body[1];
   const [result] = await database.query(
-    `UPDATE project SET ${trucAChanger} = ? WHERE idproject = ?`,
-    [req.trucAChanger, req.params.id]
+    `UPDATE project SET ${column} = ? WHERE idproject = ?`,
+    [newThing, req.params.id]
   );
   return result;
 };

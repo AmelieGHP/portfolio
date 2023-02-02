@@ -1,0 +1,60 @@
+.projectAdmin {
+  margin: 3vh auto;
+  gap: 3vh;
+  h2 {
+    margin: 5px;
+  }
+  & .inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vh;
+    box-shadow: $shadowBox;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  & .imgsContainer {
+    margin-bottom: 0;
+    & .imgContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2vh;
+    }
+    & .imgContainer:hover {
+      cursor: default;
+      scale: 1;
+    }
+  }
+  & textarea {
+    width: 70vw;
+  }
+  & input[type="text"] {
+    width: 350px;
+  }
+  & button {
+    border: 1px solid transparent;
+    background-color: $accentColor;
+    color: white;
+    height: 45px;
+    box-shadow: 1px 1px 5px $textColor;
+    min-width: 80px;
+  }
+
+  & button:hover {
+    box-shadow: $shadowBox;
+  }
+
+  & .backButton {
+    color: $accentColor;
+    background-color: white;
+    display: flex;
+    align-items: center;
+
+    & svg {
+      width: 20px;
+      height: 20px;
+      margin: 0 4px 0 0;
+    }
+  }
+}

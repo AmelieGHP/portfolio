@@ -11,6 +11,7 @@
 
   & h4 {
     color: $accentColor;
+    text-align: center;
   }
 
   .updateText {
@@ -30,43 +31,6 @@
     gap: 2vh;
     box-shadow: $shadowBox;
     border-radius: 20px;
-
-    & input,
-    textarea {
-      border: 1px solid $accentColor;
-      border-radius: 10px;
-      padding: 0 8px;
-    }
-
-    & input[type="text"] {
-      height: 30px;
-      width: 300px;
-    }
-
-    & input[type="file"] {
-      border: none;
-      height: 38px;
-      padding: 4px;
-    }
-
-    & input::file-selector-button {
-      background-color: white;
-      border: 1px solid $accentColor;
-      height: 30px;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 1px 1px 5px $textColor;
-      transition: 0.3s ease-in-out;
-    }
-    & input::file-selector-button:hover {
-      box-shadow: 2px 2px 10px $textColor;
-    }
-
-    & textarea {
-      height: 150px;
-      width: 300px;
-      padding: 8px;
-    }
 
     & img {
       border-radius: 50%;
@@ -98,6 +62,7 @@
 
   & .buttonContainer {
     display: flex;
+    justify-content: center;
     gap: 1vw;
   }
 
@@ -165,19 +130,24 @@
     }
   }
 
-  .newTechno {
-    gap: 1vh;
-  }
-
-  & .delete {
+  .delete {
     border: 1px solid rgb(241, 48, 48);
     background-color: white;
     color: rgb(241, 48, 48);
     box-shadow: none;
   }
 
-  & .delete:hover {
+  .delete:hover {
     box-shadow: 2px 2px 8px rgb(241, 48, 48);
+  }
+  .newTechno {
+    gap: 1vh;
+  }
+  .projectsContainer {
+    .projectCard:hover {
+      scale: 1;
+      box-shadow: $shadowBox;
+    }
   }
 }
 @media screen and (min-width: 1700px) {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import TechnoAdmin from "@components/TechnoAdmin";
+import ProjectCardAdmin from "@components/ProjectCardAdmin";
 
 function Admin() {
   const inputRef = useRef(null);
@@ -302,32 +303,18 @@ function Admin() {
           </button>
         </div>
       </div>
-      <div className="adminProject section">
+      <div className="adminProject projects section">
         <h3>Projects</h3>
-        {projects.length > 0 &&
-          projects.map((project) => (
-            <div>
-              <p>Name : {project.projectName}</p>
-              <p>Description : {project.projectDescription}</p>
-              <a href={project.websiteLink}>Website link</a>
-              <a href={project.projectGithub}>Githbub repository</a>
-              <div className="buttonContainer">
-                <button
-                  type="button"
-                  onClick={() => updateTechno(project.idproject)}
-                >
-                  Update
-                </button>
-                <button
-                  className="delete"
-                  type="button"
-                  onClick={() => deleteTechno(project.idproject)}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
+        <div className="projectsContainer">
+          {projects.length > 0 &&
+            projects.map((project) => (
+              <ProjectCardAdmin
+                name={project.projectName}
+                image1={project.image1}
+                id={project.idproject}
+              />
+            ))}
+        </div>
       </div>
     </div>
   );
