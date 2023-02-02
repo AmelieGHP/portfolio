@@ -27,7 +27,7 @@ function Projects() {
   }, []);
 
   return (
-    <div id="projects" className="section projects">
+    <div className="section projects">
       <h2>Projects</h2>
       <div className="projectsContainer">
         {projects.length > 0 &&

@@ -64,13 +64,19 @@ function Home() {
       <Header firstname={firstname} lastname={lastname} picture={picture} />
       <div id="content">
         {showNav && <Nav />}
+        <br />
+        <br id="about" />
         <About
           picture={picture}
           description={description}
           linkedin={linkedin}
           github={github}
         />
+        <br id="projects" />
+
         <Projects />
+        <br id="contact" />
+
         <Contact />
       </div>
     </div>

@@ -18,7 +18,7 @@ const updateUser = async (req) => {
 };
 
 const updatePicture = async (req) => {
-  const { picture } = req.body;
+  const picture = req.body[0];
   const [result] = await database.query(
     `UPDATE user SET picture = ? WHERE iduser = 1`,
     [picture]

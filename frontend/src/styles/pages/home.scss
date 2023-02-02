@@ -1,13 +1,13 @@
 .home {
-  min-height: calc(100vh - 45px - 3vh);
-
   & .section {
-    min-height: 100vh;
-    width: 80vw;
+    min-height: calc(100vh - 45px - 3vh);
+    width: 90vw;
     display: flex;
     flex-direction: column;
-    margin: auto;
-    padding-top: calc(45px + 2vh);
+    margin: 5vh auto;
+    padding: 30px 5vw;
+    box-shadow: $shadowBox;
+    border-radius: 20px;
 
     & h2 {
       color: $accentColor;

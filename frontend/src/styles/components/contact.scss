@@ -12,12 +12,14 @@
       height: 50px;
       border: 1px solid $accentColor;
       padding: 0 8px;
+      border-radius: 10px;
     }
 
     & textarea {
       height: 150px;
       border: 1px solid $accentColor;
       padding: 8px;
+      border-radius: 10px;
     }
 
     & button {

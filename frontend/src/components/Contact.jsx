@@ -6,7 +6,7 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   return (
-    <div id="contact" className="section contact">
+    <div className="section contact">
       <h2>Contact</h2>
       <form>
         <input

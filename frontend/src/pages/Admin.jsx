@@ -208,7 +208,7 @@ function Admin() {
               />
               <button
                 type="button"
-                onClick={() => saveNewThing(description, "userDescription")}
+                onClick={() => saveNewThing(linkedin, "linkedin")}
               >
                 Save
               </button>
@@ -260,7 +260,7 @@ function Admin() {
             ))}
         </div>
         <div className="technoAdmin newTechno">
-          <p>Add a new techno :</p>
+          <h4>Add a new techno :</h4>
           <input
             type="text"
             value={technoName}
@@ -311,18 +311,21 @@ function Admin() {
               <p>Description : {project.projectDescription}</p>
               <a href={project.websiteLink}>Website link</a>
               <a href={project.projectGithub}>Githbub repository</a>
-              <button
-                type="button"
-                onClick={() => deleteTechno(project.idproject)}
-              >
-                Delete
-              </button>
-              <button
-                type="button"
-                onClick={() => updateTechno(project.idproject)}
-              >
-                Update
-              </button>
+              <div className="buttonContainer">
+                <button
+                  type="button"
+                  onClick={() => updateTechno(project.idproject)}
+                >
+                  Update
+                </button>
+                <button
+                  className="delete"
+                  type="button"
+                  onClick={() => deleteTechno(project.idproject)}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           ))}
       </div>

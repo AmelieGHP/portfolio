@@ -28,7 +28,7 @@ function About({ picture, description, linkedin, github }) {
   }, []);
 
   return (
-    <div id="about" className="section about">
+    <div className="section about">
       <h2>About me</h2>
       <div className="inner">
         <div className="leftPart">

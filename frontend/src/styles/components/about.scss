@@ -14,9 +14,12 @@
 
       & .imgContainer {
         width: 250px;
+        height: 250px;
+        contain: content;
+        border-radius: 50%;
+
         & img {
           width: 100%;
-          border-radius: 50%;
         }
       }
 
