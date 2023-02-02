@@ -41,19 +41,31 @@ const Project = () => {
       <Nav />
       <div className="project">
         <h2>{name}</h2>
-        <div className="imgContainer">
-          <img
-            src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/${image1}`}
-            alt="screen"
-          />
-          <img
-            src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/${image2}`}
-            alt="screen"
-          />
-          <img
-            src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/${image3}`}
-            alt="screen"
-          />
+        <div className="imgsContainer">
+          <div className="imgContainer">
+            <img
+              src={`${
+                import.meta.env.VITE_BACKEND_URL
+              }/assets/images/${image1}`}
+              alt="screen"
+            />
+          </div>
+          <div className="imgContainer">
+            <img
+              src={`${
+                import.meta.env.VITE_BACKEND_URL
+              }/assets/images/${image2}`}
+              alt="screen"
+            />
+          </div>
+          <div className="imgContainer">
+            <img
+              src={`${
+                import.meta.env.VITE_BACKEND_URL
+              }/assets/images/${image3}`}
+              alt="screen"
+            />
+          </div>
         </div>
         <p>{description}</p>
         <div className="links">

@@ -13,7 +13,6 @@
   & .projectCard {
     display: flex;
     flex-direction: column;
-    color: $textColor;
     gap: 2vh;
     box-shadow: $shadowBox;
     padding: 20px;
@@ -21,9 +20,13 @@
     transition: 0.3s ease-in-out;
 
     & img {
-      width: 280px;
+      width: 320px;
       border-radius: 10px;
       box-shadow: 2px 2px 6px $gray;
+    }
+
+    & h4 {
+      color: $accentColor;
     }
   }
 

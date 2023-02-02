@@ -5,7 +5,6 @@ const getAllProjects = async (req, res) => {
   if (result.length === 0) {
     res.sendStatus(500);
   }
-  console.log(result);
   return res.send(result);
 };
 

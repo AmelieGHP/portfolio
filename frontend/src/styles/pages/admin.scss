@@ -1,0 +1,184 @@
+.admin {
+  padding: 3vh 0;
+
+  & h2,
+  h3 {
+    margin-bottom: 2vh;
+    color: $accentColor;
+    width: 100%;
+    text-align: center;
+  }
+  .updateText {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  & .section {
+    margin: 3vh auto;
+    width: 90vw;
+    padding: 3vh 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    box-shadow: $shadowBox;
+    border-radius: 20px;
+
+    & input,
+    textarea {
+      border: 1px solid $accentColor;
+      border-radius: 10px;
+      padding: 0 8px;
+    }
+
+    & input[type="text"] {
+      height: 30px;
+      width: 300px;
+    }
+
+    & input[type="file"] {
+      border: none;
+      height: 38px;
+      padding: 4px;
+    }
+
+    & input::file-selector-button {
+      background-color: white;
+      border: 1px solid $accentColor;
+      height: 30px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 1px 1px 5px $textColor;
+      transition: 0.3s ease-in-out;
+    }
+    & input::file-selector-button:hover {
+      box-shadow: 2px 2px 10px $textColor;
+    }
+
+    & textarea {
+      height: 150px;
+      width: 300px;
+      padding: 8px;
+    }
+
+    & img {
+      border-radius: 50%;
+    }
+  }
+
+  & .profilContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5vw;
+    justify-content: center;
+  }
+
+  & .innerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+  }
+
+  & .inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vh;
+    box-shadow: $shadowBox;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  & .buttonContainer {
+    display: flex;
+    gap: 1vw;
+  }
+
+  & button {
+    border: 1px solid transparent;
+    background-color: $accentColor;
+    color: white;
+    height: 45px;
+    box-shadow: 1px 1px 5px $textColor;
+    min-width: 80px;
+  }
+
+  & button:hover {
+    box-shadow: $shadowBox;
+  }
+
+  .adminTechno {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+
+    .technoAdminContainer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 3vw;
+    }
+
+    .technoAdmin {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1vh;
+    }
+
+    & .progressButton {
+      min-width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin: 0 4px;
+    }
+
+    & progress {
+      width: 150px;
+      height: 15px;
+      background-color: $gray;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+      border-radius: 20px;
+    }
+
+    progress::-webkit-progress-value {
+      background: $gradient;
+      border-radius: 20px;
+    }
+    progress::-webkit-progress-bar {
+      background: $gray;
+      border-radius: 20px;
+    }
+
+    progress[value]::-moz-progress-bar {
+      border-radius: 20px;
+      background: $gradient;
+    }
+  }
+
+  .newTechno {
+    gap: 1vh;
+  }
+
+  & .delete {
+    border: 1px solid rgb(241, 48, 48);
+    background-color: white;
+    color: rgb(241, 48, 48);
+    box-shadow: none;
+  }
+
+  & .delete:hover {
+    box-shadow: 2px 2px 8px rgb(241, 48, 48);
+  }
+}
+@media screen and (min-width: 1700px) {
+  .admin {
+    & .innerContainer {
+      flex-direction: row;
+    }
+  }
+}

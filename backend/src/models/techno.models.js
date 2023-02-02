@@ -17,19 +17,21 @@ const getTechnoById = async (req) => {
 };
 
 const updateTechnoById = async (req) => {
+  const level = req.body[0];
   const [result] = await database.query(
-    `UPDATE techno SET ${trucAChanger} = ? WHERE idtechno = ?`,
-    [req.trucAChanger, req.params.id]
+    `UPDATE techno SET level = ? WHERE idtechno = ?`,
+    [level, req.params.id]
   );
   return result;
 };
 
 const createTechno = async (req) => {
-  const { technoName, level, idUser } = req.body;
-
+  const name = req.body[0];
+  const level = req.body[1];
+  console.log(req.body);
   const [result] = await database.query(
-    "INSERT INTO techno (technoName, level, iduser) VALUES (?, ?, ?)",
-    [technoName, level, idUser]
+    "INSERT INTO techno (technoName, level, user_iduser) VALUES (?, ?, ?)",
+    [name, level, 1]
   );
   return result;
 };
@@ -37,7 +39,9 @@ const createTechno = async (req) => {
 const deleteTechnoById = async (req) => {
   const { id } = req.params;
 
-  const [result] = await database.query("DELETE FROM techno WHERE id=?", [id]);
+  const [result] = await database.query("DELETE FROM techno WHERE idtechno=?", [
+    id,
+  ]);
   return result;
 };
 

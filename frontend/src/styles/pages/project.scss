@@ -1,6 +1,6 @@
 .project {
   margin: 10vh auto;
-  width: 90vw;
+  width: 85vw;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
     margin-bottom: 8vh;
   }
 
-  & .imgContainer {
+  & .imgsContainer {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -20,10 +20,20 @@
     gap: 3vw;
     margin-bottom: 5vh;
 
-    & img {
-      width: 350px;
-      border: 0.5px solid $gray;
+    & .imgContainer {
+      padding: 10px;
+      box-shadow: $shadowBox;
+      transition: 0.3s ease-in-out;
       border-radius: 10px;
+
+      & img {
+        width: 380px;
+      }
+    }
+
+    & div:hover {
+      scale: 1.1;
+      cursor: pointer;
     }
   }
 
@@ -50,6 +60,11 @@
       padding: 0 12px;
       color: $accentColor;
       justify-content: center;
+      transition: 0.3s ease-in-out;
+    }
+
+    & a:hover {
+      box-shadow: $shadowBox;
     }
   }
 }
