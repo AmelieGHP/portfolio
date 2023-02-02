@@ -71,9 +71,9 @@ function TechnoAdmin({ name, levelTechno, id, getTechnos }) {
   );
 }
 TechnoAdmin.propTypes = {
-  name: Proptypes.string.isRequired,
-  levelTechno: Proptypes.number.isRequired,
-  id: Proptypes.number.isRequired,
-  getTechnos: Proptypes.func.isRequired,
+  name: Proptypes.string,
+  levelTechno: Proptypes.number,
+  id: Proptypes.number,
+  getTechnos: Proptypes.func,
 };
 export default TechnoAdmin;

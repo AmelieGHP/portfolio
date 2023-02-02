@@ -13,24 +13,24 @@ function Contact() {
           type="text"
           name="firstname"
           value={firstname}
-          placeHolder="Firstname"
+          placeholder="Firstname"
           onChange={(e) => setFirstname(e.target.value)}
         />
         <input
           type="text"
           value={lastname}
-          placeHolder="Lastname"
+          placeholder="Lastname"
           onChange={(e) => setLastname(e.target.value)}
         />
         <input
           type="email"
           value={email}
-          placeHolder="Email"
+          placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <textarea
           value={message}
-          placeHolder="Your message"
+          placeholder="Your message"
           onChange={(e) => setMessage(e.target.value)}
         />
         <button type="submit">Send</button>

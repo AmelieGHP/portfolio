@@ -16,8 +16,8 @@ function ProjectCard({ name, image1, id }) {
   );
 }
 ProjectCard.propTypes = {
-  name: Proptypes.string.isRequired,
-  id: Proptypes.number.isRequired,
-  image1: Proptypes.string.isRequired,
+  name: Proptypes.string,
+  id: Proptypes.number,
+  image1: Proptypes.string,
 };
 export default ProjectCard;
