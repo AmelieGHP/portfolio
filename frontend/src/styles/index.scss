@@ -3,5 +3,15 @@
 
 // --- pages ---
 @import "./pages/home.scss";
+@import "./pages/admin.scss";
+@import "./pages/project.scss";
+@import "./pages/projectAdmin.scss";
+@import "./pages/newProject.scss";
 
 // --- components ---
+@import "./components/header.scss";
+@import "./components/nav.scss";
+@import "./components/about.scss";
+@import "./components/techno.scss";
+@import "./components/projects.scss";
+@import "./components/contact.scss";

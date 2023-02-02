@@ -1,14 +1,20 @@
 import { Route, Routes } from "react-router-dom";
 
 import Home from "@pages/Home";
-import Details from "@pages/Details";
+import Admin from "@pages/Admin";
+import Project from "@pages/Project";
+import NewProject from "@pages/NewProject";
+import ProjectAdmin from "@pages/ProjectAdmin";
 
 function App() {
   return (
     <div className="app">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/details" element={<Details />} />
+        <Route path="/project/:id" element={<Project />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/new-project" element={<NewProject />} />
+        <Route path="admin/project/:id" element={<ProjectAdmin />} />
       </Routes>
     </div>
   );

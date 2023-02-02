@@ -1,30 +1,19 @@
 .home {
-  background: $gradient;
-  min-height: 100vh;
+  & .section {
+    min-height: calc(100vh - 45px - 7vh);
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    margin: 5vh auto;
+    padding: 30px 5vw;
+    box-shadow: $shadowBox;
+    border-radius: 20px;
 
-  .first {
-    width: 50px;
-    height: 50px;
-    background-color: $first;
-  }
-  .second {
-    width: 50px;
-    height: 50px;
-    background-color: $second;
-  }
-  .third {
-    width: 50px;
-    height: 50px;
-    background-color: $third;
-  }
-  .fourth {
-    width: 50px;
-    height: 50px;
-    background-color: $fourth;
-  }
-  .fifth {
-    width: 50px;
-    height: 50px;
-    background-color: $fifth;
+    & h2 {
+      color: $accentColor;
+      width: 100%;
+      text-align: center;
+      margin: 3vh 0;
+    }
   }
 }

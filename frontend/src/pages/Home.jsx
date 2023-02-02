@@ -1,21 +1,83 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Header from "@components/Header";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
+import Nav from "@components/Nav";
+import About from "@components/About";
+import Projects from "@components/Projects";
+import Contact from "@components/Contact";
 
 function Home() {
+  const location = useLocation();
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [github, setGithub] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [picture, setPicture] = useState("");
+  const [description, setDescription] = useState("");
+  const [showNav, setShowNav] = useState(false);
+  const getUser = () => {
+    const idUser = 1;
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/user/${idUser}`)
+      .then((result) => {
+        setFirstname(result.data[0].firstname);
+        setLastname(result.data[0].lastname);
+        setGithub(result.data[0].github);
+        setLinkedin(result.data[0].linkedin);
+        setPicture(
+          `${import.meta.env.VITE_BACKEND_URL}/assets/images/${
+            result.data[0].picture
+          }`
+        );
+        setDescription(result.data[0].userDescription);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  useEffect(() => {
+    // navigate("/", { state: { goTo: "home" } });
+    getUser();
+  }, []);
+
+  useEffect(() => {
+    if (location.state !== null) {
+      document.getElementById(location.state.goTo).scrollIntoView();
+    }
+  }, [location]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset >= window.innerHeight) {
+        setShowNav(true);
+      } else {
+        setShowNav(false);
+      }
+    });
+  }, []);
+
   return (
     <div className="home">
-      <h1>Hello World</h1>
-      <h2>Hello World</h2>
-      <h3>Hello World</h3>
-      <h4>Hello World</h4>
-      <br />
-      <div className="first" />
-      <div className="second" />
-      <div className="third" />
-      <div className="fourth" />
-      <div className="fifth" />
-      <br />
-      <p>there is sass and browserRouter</p>
-      <p>try /details</p>
+      <Header firstname={firstname} lastname={lastname} picture={picture} />
+      <div id="content">
+        {showNav && <Nav />}
+        <br />
+        <br id="about" />
+        <About
+          picture={picture}
+          description={description}
+          linkedin={linkedin}
+          github={github}
+        />
+        <br id="projects" />
+
+        <Projects />
+        <br id="contact" />
+
+        <Contact />
+      </div>
     </div>
   );
 }
