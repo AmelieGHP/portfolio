@@ -1,7 +1,7 @@
 ### Project Initialization
 
-- Create .env in front, back & root
-- Run command `npm run setup`
+- Create .env in '/backend' & '/frontend'
+- Run command `npm run setup` & 'npm run migrate'
 
 ### Available Commands
 
@@ -15,7 +15,9 @@
 
 ### Portfolio
 
+This is a portfolio. View on '/'.
 You can add, delete, update technos & projects, & update your profile on '/admin' (not protected yet).
+Almost fully responsive.
 Contact section doesn't work yet.
 
 Docs :
