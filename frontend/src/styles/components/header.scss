@@ -10,10 +10,11 @@ header {
   & .imgContainer {
     border-radius: 50%;
     width: 25vw;
+    height: 25vw;
+    contain: content;
 
     & img {
       width: 100%;
-      border-radius: 50%;
     }
   }
   & .title {
@@ -24,18 +25,34 @@ header {
     h3 {
       text-shadow: 4px 4px 4px $textColor;
     }
-
-    & button {
-      margin-top: 3vh;
+    & a {
       align-self: center;
-      font-size: $h4;
-      color: $accentColor;
-      box-shadow: $shadowBox;
-      border: 1px solid transparent;
+
+      & button {
+        margin-top: 3vh;
+        font-size: $h4;
+        color: $accentColor;
+        box-shadow: 4px 4px 30px $accentColor;
+        border: 1px solid transparent;
+        transition: 0.3s ease-in-out;
+      }
+
+      & button:hover {
+        box-shadow: $shadowBox;
+      }
     }
   }
 
   & .arrow {
     transform: rotate(90deg) translateX(3px);
+  }
+}
+@media screen and (max-width: 900px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    & .title {
+      order: 1;
+    }
   }
 }

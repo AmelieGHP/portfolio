@@ -15,8 +15,6 @@ function Home() {
   const [linkedin, setLinkedin] = useState("");
   const [picture, setPicture] = useState("");
   const [description, setDescription] = useState("");
-  const [technos, setTechnos] = useState([]);
-  const [projects, setProjects] = useState([]);
   const [showNav, setShowNav] = useState(false);
   const getUser = () => {
     const idUser = 1;
@@ -38,43 +36,10 @@ function Home() {
         console.error(err);
       });
   };
-  const getTechnos = () => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/techno`)
-      .then((result) => {
-        const tempArray = [];
-        if (result.data.length > 0) {
-          for (let i = 0; i < result.data.length; i++) {
-            tempArray.push(result.data[i]);
-          }
-        }
-        setTechnos(tempArray);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
 
-  const getProjects = () => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/project`)
-      .then((result) => {
-        const tempArray = [];
-        if (result.data.length > 0) {
-          for (let i = 0; i < result.data.length; i++) {
-            tempArray.push(result.data[i]);
-          }
-        }
-        setProjects(tempArray);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
   useEffect(() => {
+    // navigate("/", { state: { goTo: "home" } });
     getUser();
-    getTechnos();
-    getProjects();
   }, []);
 
   useEffect(() => {
@@ -85,7 +50,7 @@ function Home() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 100) {
+      if (window.pageYOffset >= window.innerHeight) {
         setShowNav(true);
       } else {
         setShowNav(false);
@@ -97,9 +62,20 @@ function Home() {
     <div className="home">
       <Header firstname={firstname} lastname={lastname} picture={picture} />
       <div id="content">
-        <Nav />
-        <About />
+        {showNav && <Nav />}
+        <br />
+        <br id="about" />
+        <About
+          picture={picture}
+          description={description}
+          linkedin={linkedin}
+          github={github}
+        />
+        <br id="projects" />
+
         <Projects />
+        <br id="contact" />
+
         <Contact />
       </div>
     </div>

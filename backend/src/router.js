@@ -20,6 +20,18 @@ router.post("/avatar", uploadAvatar.single("avatar"), (req, res) => {
   res.status(200).send(req.file.filename);
 });
 
+router.post(
+  "/screen",
+  uploadAvatar.fields([
+    { name: "photo1", maxCount: 1 },
+    { name: "photo2", maxCount: 1 },
+    { name: "photo3", maxCount: 1 },
+  ]),
+  (req, res) => {
+    res.status(200).send(req.files);
+  }
+);
+
 router.get("/user/:id", user.getUserById);
 
 router.post("/user", user.createUser);

@@ -1,0 +1,71 @@
+.project {
+  margin: 10vh auto;
+  width: 85vw;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+
+  & h2 {
+    color: $accentColor;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8vh;
+  }
+
+  & .imgsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    gap: 3vw;
+    margin-bottom: 5vh;
+
+    & .imgContainer {
+      padding: 10px;
+      box-shadow: $shadowBox;
+      transition: 0.3s ease-in-out;
+      border-radius: 10px;
+
+      & img {
+        width: 380px;
+      }
+    }
+
+    & div:hover {
+      scale: 1.1;
+      cursor: pointer;
+    }
+  }
+
+  & p,
+  a {
+    font-size: 1.2rem;
+  }
+
+  & p {
+    max-width: 80%;
+    margin: 0 auto 5vh;
+  }
+
+  & .links {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    & a {
+      height: 50px;
+      min-width: 150px;
+      border-radius: 30px;
+      box-shadow: 2px 2px 8px $textColor;
+      padding: 0 12px;
+      color: $accentColor;
+      background-color: white;
+      justify-content: center;
+      transition: 0.3s ease-in-out;
+    }
+
+    & a:hover {
+      box-shadow: $shadowBox;
+    }
+  }
+}

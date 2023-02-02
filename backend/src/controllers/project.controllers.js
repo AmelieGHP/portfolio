@@ -5,7 +5,7 @@ const getAllProjects = async (req, res) => {
   if (result.length === 0) {
     res.sendStatus(500);
   }
-  return res.json(result);
+  return res.send(result);
 };
 
 const getProjectById = async (req, res) => {
@@ -26,7 +26,7 @@ const updateProjectById = async (req, res) => {
 };
 
 const createProject = async (req, res) => {
-  const result = await projectModels.postProject(req);
+  const result = await projectModels.createProject(req);
   return res.json(result);
 };
 

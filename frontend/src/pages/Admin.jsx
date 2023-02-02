@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
+import TechnoAdmin from "@components/TechnoAdmin";
+import ProjectCardAdmin from "@components/ProjectCardAdmin";
 
 function Admin() {
   const inputRef = useRef(null);
-  const inputRef1 = useRef(null);
-  const inputRef2 = useRef(null);
-  const inputRef3 = useRef(null);
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [github, setGithub] = useState("");
@@ -14,6 +14,9 @@ function Admin() {
   const [description, setDescription] = useState("");
   const [technos, setTechnos] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [technoName, setTechnoName] = useState("");
+  const [technoLevel, setTechnoLevel] = useState(1);
+
   const getUser = () => {
     const idUser = 1;
     axios
@@ -38,7 +41,6 @@ function Admin() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/techno`)
       .then((result) => {
-        console.log(result.data);
         const tempArray = [];
         if (result.data.length > 0) {
           for (let i = 0; i < result.data.length; i++) {
@@ -46,7 +48,6 @@ function Admin() {
           }
         }
         setTechnos(tempArray);
-        console.log(tempArray);
       })
       .catch((err) => {
         console.error(err);
@@ -57,7 +58,6 @@ function Admin() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/project`)
       .then((result) => {
-        console.log(result.data);
         const tempArray = [];
         if (result.data.length > 0) {
           for (let i = 0; i < result.data.length; i++) {
@@ -65,7 +65,6 @@ function Admin() {
           }
         }
         setProjects(tempArray);
-        console.log(tempArray);
       })
       .catch((err) => {
         console.error(err);
@@ -99,9 +98,9 @@ function Admin() {
       axios
         .post(`${import.meta.env.VITE_BACKEND_URL}/avatar`, formData)
         .then((result) => {
-          const picture = result.data;
+          const picture1 = result.data;
           axios
-            .put(`${import.meta.env.VITE_BACKEND_URL}/userPicture`, [picture])
+            .put(`${import.meta.env.VITE_BACKEND_URL}/userPicture`, [picture1])
             .then(() => {
               alert("Done!");
               getUser();
@@ -130,140 +129,206 @@ function Admin() {
       });
   };
 
+  const createTechno = () => {
+    const name = technoName;
+    const level = technoLevel;
+    axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/techno`, [name, level])
+      .then((result) => {
+        if (result.status === 204) {
+          alert("Done!");
+        }
+        getUser();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   useEffect(() => {
     getUser();
     getTechnos();
     getProjects();
   }, []);
   return (
-    <div>
-      <h3>
-        Hello {firstname} {lastname}, here are your infos :
-      </h3>
-      <p>Please click the save button where you're done</p>
-      <div className="adminProfil">
-        <div>
-          <img src={picture} alt="profil" width="150px" />
-          <input
-            type="file"
-            name="avatar"
-            ref={inputRef}
-            accept="image/png, image/jpg, image/jpeg"
-            onChange={(e) => updateImg(e)}
-          />
-          <button type="button" onClick={() => savePicture()}>
-            Save Picture
-          </button>
-        </div>
-        <div>
-          <input
-            type="text"
-            value={firstname}
-            onChange={(e) => setFirstname(e.target.value)}
-          />
-          <button
-            type="button"
-            onClick={() => saveNewThing(firstname, "firstname")}
-          >
-            Save firstname
-          </button>
-        </div>
-        <div>
-          <input
-            type="text"
-            value={lastname}
-            onChange={(e) => setLastname(e.target.value)}
-          />
+    <div className="admin">
+      <h2>Update your portfolio</h2>
+      <p className="updateText">Please click the save button for each update</p>
+      <div className="adminProfil section">
+        <h3>Profile</h3>
+        <div className="profilContainer">
+          <div className="innerContainer">
+            <div className="inputContainer">
+              <h4>Firstname</h4>
+              <input
+                type="text"
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={() => saveNewThing(firstname, "firstname")}
+              >
+                Save
+              </button>
+            </div>
+            <div className="inputContainer">
+              <h4>Lastname</h4>
+              <input
+                type="text"
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
+              />
 
-          <button
-            type="button"
-            onClick={() => saveNewThing(lastname, "lastname")}
-          >
-            Save lastname
-          </button>
+              <button
+                type="button"
+                onClick={() => saveNewThing(lastname, "lastname")}
+              >
+                Save
+              </button>
+            </div>
+            <div className="inputContainer">
+              <h4>Github </h4>
+              <input
+                type="text"
+                value={github}
+                onChange={(e) => setGithub(e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={() => saveNewThing(github, "github")}
+              >
+                Save
+              </button>
+            </div>
+            <div className="inputContainer">
+              <h4>Linkedin</h4>
+              <input
+                type="text"
+                value={linkedin}
+                onChange={(e) => setLinkedin(e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={() => saveNewThing(linkedin, "linkedin")}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+          <div className="innerContainer">
+            <div className="inputContainer">
+              <h4>Avatar</h4>
+              <img src={picture} alt="profil" width="150px" />
+              <input
+                type="file"
+                name="avatar"
+                ref={inputRef}
+                accept="image/png, image/jpg, image/jpeg"
+                onChange={(e) => updateImg(e)}
+              />
+              <button type="button" onClick={() => savePicture()}>
+                Save
+              </button>
+            </div>
+            <div className="inputContainer">
+              <h4>Description</h4>
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={() => saveNewThing(description, "userDescription")}
+              >
+                Save
+              </button>
+            </div>
+          </div>
         </div>
-        <div>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <button
-            type="button"
-            onClick={() => saveNewThing(description, "userDescription")}
-          >
-            Save description
-          </button>
+      </div>
+      <div className="adminTechno section">
+        <h3>Technos</h3>
+        <div className="technoAdminContainer">
+          {technos.length > 0 &&
+            technos.map((techno) => (
+              <TechnoAdmin
+                key={techno.technoid}
+                name={techno.technoName}
+                levelTechno={techno.level}
+                id={techno.idtechno}
+                getTechnos={getTechnos()}
+              />
+            ))}
         </div>
-        <div>
+        <div className="technoAdmin newTechno">
+          <h4>Add a new techno :</h4>
           <input
             type="text"
-            value={github}
-            onChange={(e) => setGithub(e.target.value)}
+            value={technoName}
+            placeholder="Techno name"
+            onChange={(e) => setTechnoName(e.target.value)}
           />
-          <button type="button" onClick={() => saveNewThing(github, "github")}>
-            Save github
-          </button>
-        </div>
-        <div>
-          <input
-            type="text"
-            value={linkedin}
-            onChange={(e) => setLinkedin(e.target.value)}
-          />
+          <div className="progressContainer">
+            <button
+              type="button"
+              className="progressButton"
+              onClick={() => {
+                technoLevel > 0 && setTechnoLevel(technoLevel - 1);
+              }}
+            >
+              -
+            </button>
+            <progress value={technoLevel} max={10}>
+              {technoLevel}
+            </progress>{" "}
+            <button
+              type="button"
+              className="progressButton"
+              onClick={() => {
+                technoLevel < 10 && setTechnoLevel(technoLevel + 1);
+              }}
+            >
+              +
+            </button>
+          </div>
           <button
             type="button"
-            onClick={() => saveNewThing(description, "userDescription")}
+            onClick={() => {
+              createTechno();
+              setTechnoLevel(1);
+              setTechnoName("");
+            }}
           >
-            Save linkedin
+            Save
           </button>
         </div>
       </div>
-      <div className="adminTechno">
-        {technos.length > 0 &&
-          technos.map((techno) => (
-            <div>
-              <p>{techno.technoName}</p>
-              <p>{techno.level}</p>
-              <button
-                type="button"
-                onClick={() => deleteTechno(techno.idtechno)}
-              >
-                Delete
-              </button>
-              <button
-                type="button"
-                onClick={() => updateTechno(techno.idtechno)}
-              >
-                Update
-              </button>
+      <div className="adminProject projects section">
+        <h3>Projects</h3>
+        <div className="projectsContainer">
+          {projects.length > 0 &&
+            projects.map((project) => (
+              <ProjectCardAdmin
+                name={project.projectName}
+                image1={project.image1}
+                id={project.idproject}
+                getProjects={getProjects()}
+              />
+            ))}
+          <div className="projectCard newProject">
+            <div className="imgContainer">
+              <img
+                src="https://via.placeholder.com/320x145.png?text=New"
+                alt="placeholder"
+              />
             </div>
-          ))}
-        <button type="button" onClick={() => createTechno()}>
-          Add
-        </button>
-      </div>
-      <div className="adminProject">
-        {projects.length > 0 &&
-          projects.map((project) => (
-            <div>
-              <p>Name : {project.projectName}</p>
-              <p>Description : {project.projectDescription}</p>
-              <a href={project.websiteLink}>Website link</a>
-              <a href={project.projectGithub}>Githbub repository</a>
-              <button
-                type="button"
-                onClick={() => deleteTechno(project.idproject)}
-              >
-                Delete
-              </button>
-              <button
-                type="button"
-                onClick={() => updateTechno(project.idproject)}
-              >
-                Update
-              </button>
-            </div>
-          ))}
+            <h4>Add a new project</h4>
+            <Link to="/admin/new-project">
+              <button type="button">Add</button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -101,7 +101,7 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 
 INSERT INTO user(firstname, lastname, email, password, userDescription, linkedin, github, picture) VALUES
-("Amélie", "Guilloux", "amelie.guilloux@hotmail.fr", "1234", "plop", "https://www.linkedin.com/in/amelie-ghp", "https://github.com/AmelieGHP", "ID-carre.jpg");
+("Amélie", "Guilloux", "amelie.guilloux@hotmail.fr", "1234", "I was a midwife for 9 years. Now a web dev, always birthing new projects !", "https://www.linkedin.com/in/amelie-ghp", "https://github.com/AmelieGHP", "ID-carre.jpg");
 INSERT INTO techno(technoName, level, user_iduser) VALUES
 ("JavaScript", 6, 1),
 ("HTML", 7, 1),
@@ -109,7 +109,9 @@ INSERT INTO techno(technoName, level, user_iduser) VALUES
 ("ReactJS", 5, 1),
 ("React natif", 2, 1),
 ("SQL", 5, 1);
-INSERT INTO project(projectName, projectDescription, websiteLink, projectGithub, user_iduser) VALUES
-("SPA Détentéo", "Premier projet de la formation à la Wild Code School : création d'un site vitrine, frontend, pour un client fictif. Projet réalisé en groupe, en deux semaines. Langages/technos utilisés : Javascript, HTML/CSS", "https://baptistecourtin.github.io/Projet1-SPA/pages/", "https://github.com/AmelieGHP/Projet1-SPA", 1),
-("Les FrenCheese","Deuxième projet de la formation à la Wild Code School : création d'un site full-stack, thème libre. Projet réalisé en groupe, en six semaines. Langages/technos utilisés : ReactJS, XML/CSS", "http://vps-d5babf40.vps.ovh.net:5003/", "https://github.com/AmelieGHP/Projet2-Cheese", 1);
+INSERT INTO project(projectName, projectDescription, websiteLink, projectGithub, image1, image2, image3, user_iduser) VALUES
+("SPA Détentéo", "Premier projet de la formation à la Wild Code School : création d'un site vitrine, frontend, pour un client fictif. Projet réalisé en groupe, en deux semaines. Langages/technos utilisés : Javascript, HTML/CSS", "https://baptistecourtin.github.io/Projet1-SPA/pages/", "https://github.com/AmelieGHP/Projet1-SPA", "spa1.png", "spa2.png", "spa3.png",  1),
+("Les FrenCheese","Deuxième projet de la formation à la Wild Code School : création d'un site full-stack, thème libre. Projet réalisé en groupe, en six semaines. Langages/technos utilisés : ReactJS, XML/CSS", "http://vps-d5babf40.vps.ovh.net:5003/", "https://github.com/AmelieGHP/Projet2-Cheese","cheese1.png", "cheese2.png", "cheese3.png", 1),
+("Mariage","Projet perso : création d'un site informatif pour les invités de mon mariage. Projet frontend réalisé en une semaine. Langages/technos utilisés : ReactJS, XML/SCSS", "https://amelie-et-ferdinand.netlify.app/", "https://github.com/AmelieGHP/mariage","mariage1.png", "mariage2.png", "mariage3.png", 1),
+("Black Mount","Projet 'hackathon', compétion réalisée en 48h, en groupe. Premier ex-eaquo sur une cinquantaine de groupes ! Sujet imposé : création d'un site de gestion de flotte de véhicules. Langages/technos utilisés : ReactJS, XML/SCSS", "https://stirring-conkies-65c984.netlify.app/", "https://github.com/AmelieGHP/Hackathon2","poney1.png", "poney2.png", "poney3.png", 1);
 

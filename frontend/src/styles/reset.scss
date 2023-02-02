@@ -55,11 +55,22 @@ button {
   height: 50px;
   min-width: 150px;
   padding: 0 12px;
-  font-family: $textFont;
 }
 
 a {
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+p,
+h4,
+button,
+a,
+input,
+textarea {
+  font-family: $textFont;
+  color: $textColor;
 }
 
 ol,
@@ -70,6 +81,43 @@ ul {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+input,
+textarea {
+  border: 1px solid $accentColor;
+  border-radius: 10px;
+  padding: 0 8px;
+}
+
+input[type="text"] {
+  height: 30px;
+  width: 300px;
+}
+
+input[type="file"] {
+  border: none;
+  height: 38px;
+  padding: 4px;
+}
+
+input::file-selector-button {
+  background-color: white;
+  border: 1px solid $accentColor;
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px $textColor;
+  transition: 0.3s ease-in-out;
+}
+input::file-selector-button:hover {
+  box-shadow: 2px 2px 10px $textColor;
+}
+
+textarea {
+  height: 150px;
+  width: 300px;
+  padding: 8px;
 }
 
 // ---

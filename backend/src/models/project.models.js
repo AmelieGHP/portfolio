@@ -17,9 +17,11 @@ const getProjectById = async (req) => {
 };
 
 const updateProjectById = async (req) => {
+  const column = req.body[0];
+  const newThing = req.body[1];
   const [result] = await database.query(
-    `UPDATE project SET ${trucAChanger} = ? WHERE idproject = ?`,
-    [req.trucAChanger, req.params.id]
+    `UPDATE project SET ${column} = ? WHERE idproject = ?`,
+    [newThing, req.params.id]
   );
   return result;
 };
@@ -55,7 +57,10 @@ const createProject = async (req) => {
 const deleteProjectById = async (req) => {
   const { id } = req.params;
 
-  const [result] = await database.query("DELETE FROM project WHERE id=?", [id]);
+  const [result] = await database.query(
+    "DELETE FROM project WHERE idproject=?",
+    [id]
+  );
   return result;
 };
 

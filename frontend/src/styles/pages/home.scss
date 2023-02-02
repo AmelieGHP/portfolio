@@ -1,7 +1,19 @@
 .home {
-  min-height: 100vh;
+  & .section {
+    min-height: calc(100vh - 45px - 7vh);
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    margin: 5vh auto;
+    padding: 30px 5vw;
+    box-shadow: $shadowBox;
+    border-radius: 20px;
 
-  .section {
-    min-height: 100vh;
+    & h2 {
+      color: $accentColor;
+      width: 100%;
+      text-align: center;
+      margin: 3vh 0;
+    }
   }
 }
