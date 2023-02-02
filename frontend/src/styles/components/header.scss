@@ -47,3 +47,12 @@ header {
     transform: rotate(90deg) translateX(3px);
   }
 }
+@media screen and (max-width: 900px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    & .title {
+      order: 1;
+    }
+  }
+}

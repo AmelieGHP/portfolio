@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import TechnoAdmin from "@components/TechnoAdmin";
 import ProjectCardAdmin from "@components/ProjectCardAdmin";
@@ -314,6 +315,18 @@ function Admin() {
                 id={project.idproject}
               />
             ))}
+          <div className="projectCard newProject">
+            <div className="imgContainer">
+              <img
+                src="https://via.placeholder.com/320x145.png?text=New"
+                alt="placeholder"
+              />
+            </div>
+            <h4>Add a new project</h4>
+            <Link to={`/admin/new-project`}>
+              <button type="button">Add</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

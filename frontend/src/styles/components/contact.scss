@@ -3,6 +3,7 @@
   & form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2vh;
     width: 80%;
     margin: auto;
@@ -13,6 +14,7 @@
       border: 1px solid $accentColor;
       padding: 0 8px;
       border-radius: 10px;
+      width: 80%;
     }
 
     & textarea {
@@ -20,6 +22,7 @@
       border: 1px solid $accentColor;
       padding: 8px;
       border-radius: 10px;
+      width: 80%;
     }
 
     & button {
