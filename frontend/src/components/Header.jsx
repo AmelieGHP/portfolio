@@ -24,8 +24,8 @@ function Header({ firstname, lastname, picture }) {
   );
 }
 Header.propTypes = {
-  firstname: Proptypes.string.isRequired,
-  lastname: Proptypes.string.isRequired,
-  picture: Proptypes.string.isRequired,
+  firstname: Proptypes.string,
+  lastname: Proptypes.string,
+  picture: Proptypes.string,
 };
 export default Header;
