@@ -8,9 +8,9 @@ function Header({ firstname, lastname, picture }) {
     <header id="home">
       <div className="title">
         <h1>
-          Hi, I'm {firstname} {lastname}
+          {firstname} {lastname}
         </h1>
-        <h3>I'm a full-stack web developper</h3>
+        <h3>Full-stack web developper</h3>
         <Link to="/" state={{ goTo: "content" }}>
           <button type="button">
             View my work <TbArrowLoopRight2 className="arrow" />
