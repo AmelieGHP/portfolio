@@ -12,6 +12,7 @@ header {
     width: 25vw;
     height: 25vw;
     contain: content;
+    box-shadow: 2px 2px 15px white;
 
     & img {
       width: 100%;
@@ -32,7 +33,7 @@ header {
         margin-top: 3vh;
         font-size: $h4;
         color: $accentColor;
-        box-shadow: 4px 4px 30px $accentColor;
+        box-shadow: 1px 1px 10px white;
         border: 1px solid transparent;
         transition: 0.3s ease-in-out;
       }
