@@ -4,6 +4,7 @@
   min-height: 80vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   & h2 {
     color: $accentColor;
@@ -25,15 +26,28 @@
       box-shadow: $shadowBox;
       transition: 0.3s ease-in-out;
       border-radius: 10px;
+      width: 400px;
+      height: 195px;
 
       & img {
         width: 380px;
       }
+
+      & .bigImage {
+        width: 80vw;
+        position: absolute;
+        transform: translate(-50vw, -50vh);
+        left: 50vw;
+        top: 50vh;
+        z-index: 1;
+        box-shadow: $shadowBox;
+        border-radius: 10px;
+      }
     }
 
-    & div:hover {
-      scale: 1.1;
+    & .imgContainer:hover {
       cursor: pointer;
+      box-shadow: 8px 8px 20px $textColor;
     }
   }
 
