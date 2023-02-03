@@ -18,7 +18,7 @@
 This is a portfolio. View on '/'.
 You can add, delete, update technos & projects, & update your profile on '/admin' (not protected yet).
 Almost fully responsive.
-Contact section doesn't work yet.
+Contact section doesn't work on main, but was added on dev later and works there.
 
 Docs :
 
