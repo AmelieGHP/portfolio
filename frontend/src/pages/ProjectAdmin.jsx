@@ -107,6 +107,7 @@ function Project() {
   };
 
   const updateThing = (column, newThing) => {
+    console.log(newThing);
     axios
       .put(`${import.meta.env.VITE_BACKEND_URL}/project/${id}`, [
         column,

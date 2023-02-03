@@ -13,6 +13,9 @@ function Project() {
   const [image1, setImage1] = useState("");
   const [image2, setImage2] = useState("");
   const [image3, setImage3] = useState("");
+  const [bigImage1, setBigImage1] = useState(false);
+  const [bigImage2, setBigImage2] = useState(false);
+  const [bigImage3, setBigImage3] = useState(false);
 
   const getProject = () => {
     axios
@@ -47,6 +50,13 @@ function Project() {
                 import.meta.env.VITE_BACKEND_URL
               }/assets/images/${image1}`}
               alt="screen"
+              className={bigImage1 ? "bigImage" : ""}
+              onClick={() => {
+                window.innerWidth > 950 &&
+                  !bigImage3 &&
+                  !bigImage2 &&
+                  setBigImage1(!bigImage1);
+              }}
             />
           </div>
           <div className="imgContainer">
@@ -55,6 +65,13 @@ function Project() {
                 import.meta.env.VITE_BACKEND_URL
               }/assets/images/${image2}`}
               alt="screen"
+              className={bigImage2 ? "bigImage" : ""}
+              onClick={() => {
+                window.innerWidth > 950 &&
+                  !bigImage1 &&
+                  !bigImage3 &&
+                  setBigImage2(!bigImage2);
+              }}
             />
           </div>
           <div className="imgContainer">
@@ -63,6 +80,13 @@ function Project() {
                 import.meta.env.VITE_BACKEND_URL
               }/assets/images/${image3}`}
               alt="screen"
+              className={bigImage3 ? "bigImage" : ""}
+              onClick={() => {
+                window.innerWidth > 950 &&
+                  !bigImage1 &&
+                  !bigImage2 &&
+                  setBigImage3(!bigImage3);
+              }}
             />
           </div>
         </div>
